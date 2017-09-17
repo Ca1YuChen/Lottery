@@ -1,13 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Page from './components/page/Page'
 import './index.css';
-import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import MyAwesomeReactComponent from './MyAwesomeReactComponent';
 
 ReactDOM.render(
-    <App />, 
+    <Page />, 
     document.getElementById('root')
 );
 registerServiceWorker();

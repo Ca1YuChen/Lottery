@@ -1,0 +1,49 @@
+.simple-card {
+    padding: 10px;
+    .card-id {
+        height: 200px;
+        width: 100%;
+        background-color: #BDBDBD;
+        div {
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            font-size: 100px;
+            color: #fff;
+        }
+    }
+    .status-1 {
+        background-color: #2196F3;
+        div {
+            color: #fff;
+        }
+    }
+    .status-2 {
+        background-color: #43A047;
+        div {
+            color: #fff;
+        }
+    }
+    .content-container {
+        padding-top: 25px;
+        margin-left: 10px;
+        .no-character {
+            display: inline-block;
+            font-size: 30px;
+        }
+        .number {
+            margin-left: 20px;
+            font-size: 40px;
+            display: inline-block;
+        }
+    }
+    .card-button-container {
+        margin-left: 10px;
+        .begin-button {
+            background-color: #E0E0E0;
+        }
+        .reset-button {
+            color: #757575;
+        }
+    }
+}
