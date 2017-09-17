@@ -7,7 +7,7 @@ import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
 import IconButton from 'material-ui/IconButton';
 import AlertDialog from '../AlertDialog/AlertDialog';
-import './ButtonAppBar.scss';
+import './ButtonAppBar.css';
 
 const styles = theme => ({
   root: {
@@ -42,7 +42,7 @@ class ButtonAppBar extends React.Component {
             <img />
           </div>
           <Typography type="title" color="inherit" className={this.classes.flex}>
-            Title
+          达达-京东到家2018校园招聘
           </Typography>
           <Button color="contrast" onClick={this.showDialog}>设置</Button>
         </Toolbar>

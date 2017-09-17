@@ -3,7 +3,8 @@ import Slider from 'react-slick';
 import Button from 'material-ui/Button';
 import SimpleMediaCard from '../LotteryItem/SimpleMediaCard'
 import 'typeface-roboto';
-import './LotteryList.scss';
+import './LotteryList.css';
+import logo from '../../img/logo.jpg';
 
 export default class CenterMode extends React.Component {
 
@@ -66,8 +67,13 @@ export default class CenterMode extends React.Component {
           <div className='card'><SimpleMediaCard ref='c10' cardID={10} desc={state.list[9]} type={2} max={props.max}/></div>
         </Slider>
         <div className='button-container'>
-          <Button className='left-button' raised color='primary' onClick={this.previous}>Previous</Button>
-          <Button className='right-button' raised color='accent' onClick={this.next}>Next</Button>
+          <Button className='left-button' raised color='primary' onClick={this.previous}>上一页</Button>
+          <Button className='right-button' raised color='accent' onClick={this.next}>下一页</Button>
+        </div>
+        <div className='logo-container'>
+          <div className='logo'>
+            <img src={logo}/>
+          </div>
         </div>
       </div>
     );

@@ -2,7 +2,7 @@ import React from 'react';
 import LotteryList from '../LotteryList/LotteryList';
 import ButtonAppBar from '../ButtonAppBar/ButtonAppBar';
 import AlertDialog from '../AlertDialog/AlertDialog';
-import './Page.scss';
+import './Page.css';
 
 export default class Page extends React.Component {
   constructor(props) {

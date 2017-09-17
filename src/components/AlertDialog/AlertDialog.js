@@ -7,7 +7,7 @@ import Dialog, {
   DialogTitle,
 } from 'material-ui/Dialog';
 import TextField from 'material-ui/TextField';
-import './AlertDialog.scss';
+import './AlertDialog.css';
 
 export default class AlertDialog extends React.Component {
   state = {
