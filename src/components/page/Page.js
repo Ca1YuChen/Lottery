@@ -25,7 +25,7 @@ export default class Page extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='page'>
         <ButtonAppBar className='app-bar' handler={this.handleChangeMax}/>
         <LotteryList max={this.state.max} start={this.state.start} reset={this.state.reset}/>
       </div>
