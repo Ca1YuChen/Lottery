@@ -30,8 +30,8 @@ class SimpleMediaCard extends React.Component {
             cardClass:'card-id'
         }
         this.timer = null;
-        this.start = this.start.bind(this);
-        this.reset = this.reset.bind(this);
+        // this.start = this.start.bind(this);
+        // this.reset = this.reset.bind(this);
         this.prepare = this.prepare.bind(this);
     }
 
@@ -47,7 +47,7 @@ class SimpleMediaCard extends React.Component {
             this.timer = setInterval(
                 ()=>{
                     let max = this.props.max;
-                    let luckyNum = parseInt(Math.random() * max, 10);
+                    let luckyNum = parseInt(Math.ceil(Math.random() * max), 10);
                     this.setState({
                         luckyNum
                     });
@@ -82,6 +82,17 @@ class SimpleMediaCard extends React.Component {
         }
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.start) {
+            this.start();
+            this.props.callback();
+        }
+        if (nextProps.reset) {
+            this.reset();
+            this.props.callback();
+        }
+    }
+
     render() {
         let state = this.state;
         let props = this.props;
@@ -110,14 +121,14 @@ class SimpleMediaCard extends React.Component {
                 {this.state.luckyNum}
             </Typography>
             </CardContent>
-            <CardActions className='card-button-container'>
+            {/* <CardActions className='card-button-container'>
             <Button onClick={this.start} className='begin-button'>
                 {this.state.desc1}
             </Button>
             <Button dense color="default" onClick={this.reset} className='reset-button'>
                 {this.state.desc2}
             </Button>
-            </CardActions>
+            </CardActions> */}
         </Card>
         </div>
     );

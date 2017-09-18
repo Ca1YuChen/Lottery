@@ -8,14 +8,18 @@ export default class Page extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      'max': 100
+      'max': 100,
+      'start':false,
+      'reset':false
     };
     this.handleChangeMax = this.handleChangeMax.bind(this);
   }
 
   handleChangeMax(max) {
     this.setState({
-      'max':max
+      'max':max,
+      'start':false,
+      'reset':false
     });
   }
 
@@ -23,7 +27,7 @@ export default class Page extends React.Component {
     return (
       <div>
         <ButtonAppBar className='app-bar' handler={this.handleChangeMax}/>
-        <LotteryList max={this.state.max}/>
+        <LotteryList max={this.state.max} start={this.state.start} reset={this.state.reset}/>
       </div>
     );
   }

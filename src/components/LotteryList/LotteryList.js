@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Slider from 'react-slick';
 import Button from 'material-ui/Button';
 import SimpleMediaCard from '../LotteryItem/SimpleMediaCard'
@@ -15,34 +16,45 @@ export default class CenterMode extends React.Component {
     this.index = 1;
     this.state={
       list:[1,2,3,4,5,6,7,8,9,10],
-      max: this.props.max
+      max: this.props.max,
+      start: this.props.start,
+      reset: this.props.reset
     }
+    console.log('Hi');
     this.next = this.next.bind(this);
     this.previous = this.previous.bind(this);
+    this.callback = this.callback.bind(this);
   }
   next() {
-    let me = this;
-    let promise = new Promise((resolve,reject)=>{
-      resolve();
-    });
-    promise.then(()=>{
-      me.slider.slickNext();
+    let start = false;
+    let reset = true;
+    this.setState({
+      start,
+      reset
     });
   }
   previous() {
-    let me = this;
-    let promise = new Promise((resolve,reject)=>{
-      resolve();
+    let start = true;
+    let reset = false;
+    this.setState({
+      start,
+      reset
     });
-    promise.then(()=>{
-      me.slider.slickPrev();
+  }
+
+  callback() {
+    let start = false;
+    let reset = false;
+    this.setState({
+      start,
+      reset
     });
   }
 
   render() {
     const settings = {
       className: 'center',
-      centerMode: false,
+      centerMode: true,
       infinite: false,
       centerPadding: '0px',
       slidesToShow: 5,
@@ -54,7 +66,15 @@ export default class CenterMode extends React.Component {
     let props = this.props;
     return (
       <div className='list-container'>
-        <Slider ref={c => this.slider = c } {...settings}>
+        <div className='card'>
+          <SimpleMediaCard 
+            ref='card' cardID={1} desc={state.list[0]} type={1} max={props.max}
+            start={this.state.start}
+            reset={this.state.reset}
+            callback={this.callback}
+            />
+          </div>
+        {/* <Slider ref={c => this.slider = c } {...settings}>
           <div className='card'><SimpleMediaCard ref='c1' cardID={1} desc={state.list[0]} type={1} max={props.max}/></div>
           <div className='card'><SimpleMediaCard ref='c2' cardID={2} desc={state.list[1]} type={1} max={props.max}/></div>
           <div className='card'><SimpleMediaCard ref='c3' cardID={3} desc={state.list[2]} type={1} max={props.max}/></div>
@@ -65,10 +85,10 @@ export default class CenterMode extends React.Component {
           <div className='card'><SimpleMediaCard ref='c8' cardID={8} desc={state.list[7]} type={2} max={props.max}/></div>
           <div className='card'><SimpleMediaCard ref='c9' cardID={9} desc={state.list[8]} type={2} max={props.max}/></div>
           <div className='card'><SimpleMediaCard ref='c10' cardID={10} desc={state.list[9]} type={2} max={props.max}/></div>
-        </Slider>
+        </Slider> */}
         <div className='button-container'>
-          <Button className='left-button' raised color='primary' onClick={this.previous}>上一页</Button>
-          <Button className='right-button' raised color='accent' onClick={this.next}>下一页</Button>
+          <Button className='left-button' raised color='primary' onClick={this.previous}>开始</Button>
+          <Button className='right-button' raised color='accent' onClick={this.next}>重置</Button>
         </div>
         <div className='logo-container'>
           <div className='logo'>
